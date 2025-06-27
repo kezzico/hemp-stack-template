@@ -13,6 +13,7 @@ router.post('/signup', async (req, res) => {
         return res.status(400).json({ error: 'Email is required' });
     }
     try {
+        console.log('!!!!!!!🔑')
         // Insert email into the logins table
         // Try to insert the email, and only send welcome email if it's a new signup
         const [result]: any = await db.query(
@@ -24,7 +25,7 @@ router.post('/signup', async (req, res) => {
         );
         if (result.affectedRows === 0) {
             // Email already exists, do not send welcome email
-            return res.redirect(303, '/thank-you.php');
+            return res.redirect(303, '/thank-you.html');
         }
         // Send a welcome email to the user
         console.log("[/v1/signup] sending welcome email to:", email);
@@ -35,9 +36,10 @@ router.post('/signup', async (req, res) => {
             <p>We hope you enjoy our service.</p>`
         );
 
-        return res.redirect(303, '/thank-you.php');
+        return res.redirect(303, '/thank-you.html');
     } catch (error) {
-        console.error('Error during signup:', error);
+        // beware errno: 1146, the table does not exist!
+        console.log('Error during signup:', error);
         res.status(500).json({ error: 'Failed to process signup' });
     }
 });

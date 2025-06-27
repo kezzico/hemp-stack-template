@@ -14,7 +14,7 @@ fi
 npx tsup
 
 rsync -e "ssh -i key.pem" \
-    -avz ./dist/ package.json node@$HOST:$APP_DIRECTORY \
+    -avz ./.dist/ package.json node@$HOST:$APP_DIRECTORY \
     --exclude='.DS_Store'
 
 rsync -e "ssh -i key.pem" \

@@ -27,15 +27,3 @@ export default async function sendEmail(to: string, subject: string, text: strin
     }
 }
 
-// transporter.sendMail({
-//     from: NO_REPLY_EMAIL_ADDRESS,
-//     to: "someone@example.com",
-//     subject: "Test Email",
-//     text: "Hello world!"
-// }, (err, info) => {
-//     if (err) {
-//         console.error("Send error:", err);
-//     } else {
-//         console.log("Sent:", info);
-//     }
-// });
