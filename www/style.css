@@ -1,0 +1,93 @@
+:root {
+  --color-bg-dark: #1a1f2a;
+  --color-bg-mid: #2e3038;
+  --color-bg-light: #f0f2f5;
+  --color-primary: #5a9bbb;
+  --color-accent: #3f889f;
+  --color-muted: #9aa0a8;
+  --text-main: #f0f2f5;
+  --text-light: #ffffff;
+}
+
+body {
+  background: var(--color-bg-dark);
+  color: var(--text-main);
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+  background-color: var(--color-bg-mid);
+  flex: 1;
+}
+
+section {
+  padding: 2em;
+  background: var(--color-bg-dark);
+}
+
+.hero {
+  flex: 1;
+  color: var(--text-light); /* from your updated palette */
+  padding: 4em 2em;
+
+  background-size: cover; background-position: center; min-height: 300px; display: flex; align-items: center; justify-content: center;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: var(--color-bg-mid);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+input {
+  padding: 1em;
+  background-color: white;
+  border: none;
+}
+
+input[type=submit] {
+  background-color: var(--color-primary);
+  color: var(--text-light);
+  border: none;
+  border-radius: 6px;
+  padding: 0.75em 2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+input[type=submit]:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg-light);
+}
+
+footer {
+  padding: 2em;
+  color: var(--text-light);
+  background-color: var(--color-bg-mid);
+  flex: 0;
+}
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="root server, coming soon, product launch, email signup" />
+    <meta name="og:title" content="Let's build something" />
+    <meta name="og:description" content="A great product is coming soon. Enter your email to learn more." />
+    <meta name="og:image" content="https://sfo2.digitaloceanspaces.com/kezzico-bucket/root-server-0.jpg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+    <title> Let's build something </title>
+
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+        <div class="hero" style="background-image: url('https://sfo2.digitaloceanspaces.com/kezzico-bucket/root-server-0.jpg');">
+            <h1>Let's do this</h1>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h1>Great Product Coming Soon!</h1>
+            <p>Enter your email address to learn more.</p>
+
+            <FORM method="POST" action="/v1/signup">
+                <input type="email" name="email" placeholder="Enter your email" />
+                <input type="submit" value="Submit" />
+            </FORM>
+        </section>
+    </main>
+
+	    <footer>
+        <p>Built using Root Server templates -- <a href="https://github.com/kezzico/rootserver-examples/www+ts+sql">Fork on GitHub.</a></p>
+      <p>&#169; 2025 All rights reserved. </p>
+    </footer>
+  </body>
+
+</body>
+</html>

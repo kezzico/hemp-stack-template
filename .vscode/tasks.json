@@ -1,0 +1,58 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+
+        {
+            "label": "restart application service",
+            "type": "shell",
+            "command": "./scripts/daemonize.sh",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "group": {
+                "kind": "build"
+            },
+
+            "problemMatcher": []
+        },
+        {
+            "label": "deploy application",
+            "type": "shell",
+            "command": "./scripts/deploy.sh",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "group": {
+                "kind": "build"
+            },
+
+            "problemMatcher": []
+        },
+        {
+            "label": "debug application service",
+            "type": "shell",
+            "command": "./scripts/debug.sh",
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": {
+                "kind": "build"
+            },
+
+            "problemMatcher": []
+        },
+
+        {
+            "label": "connect to database",
+            "type": "shell",
+            "command": "./scripts/database.sh",
+            "group": {
+                "kind": "build"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
+
