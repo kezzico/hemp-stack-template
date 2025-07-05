@@ -34,6 +34,6 @@ else
     rsync -avz ./.dist/ package.json $APP_DIRECTORY
     rsync -avz ./www/* $WEB_ROOT
 
-    cd $APP_DIRECTORY && npm install
     cp .env $APP_DIRECTORY/.env
+    pushd $APP_DIRECTORY && npm install && popd
 fi
