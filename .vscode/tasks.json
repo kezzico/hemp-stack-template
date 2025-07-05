@@ -3,13 +3,12 @@
     // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
-
         {
-            "label": "restart application service",
+            "label": "start app daemon",
             "type": "shell",
-            "command": "./scripts/daemonize.sh",
+            "command": "./scripts/daemon.sh start",
             "presentation": {
-                "reveal": "silent"
+                "reveal":"always"
             },
             "group": {
                 "kind": "build"
@@ -18,7 +17,20 @@
             "problemMatcher": []
         },
         {
-            "label": "deploy application",
+            "label": "stop app daemon",
+            "type": "shell",
+            "command": "./scripts/daemon.sh stop",
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": {
+                "kind": "build"
+            },
+
+            "problemMatcher": []
+        },
+        {
+            "label": "deploy app",
             "type": "shell",
             "command": "./scripts/deploy.sh",
             "presentation": {
@@ -31,7 +43,7 @@
             "problemMatcher": []
         },
         {
-            "label": "debug application service",
+            "label": "debug app",
             "type": "shell",
             "command": "./scripts/debug.sh",
             "presentation": {
@@ -45,7 +57,7 @@
         },
 
         {
-            "label": "connect to database",
+            "label": "query database",
             "type": "shell",
             "command": "./scripts/database.sh",
             "group": {
