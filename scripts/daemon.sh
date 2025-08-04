@@ -7,10 +7,9 @@ if [[ -n "$REMOTE" ]]; then
     exit 1;
   fi
 
-  ssh -i key.pem node@$HOST "cd $APP_DIRECTORY && pm2 $command index.js --name $APP_NAME"
+  ssh -i key.pem node@$HOST "cd $APP_DIRECTORY && pm2 -f $command index.js --name $APP_NAME"
+  ssh -i key.pem node@$HOST "pm2 save"
 else
-  cd $APP_DIRECTORY && pm2 $command index.js --name $APP_NAME
+  cd $APP_DIRECTORY && pm2 -f $command index.js --name $APP_NAME
+  pm2 save
 fi
-
-
-

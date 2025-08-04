@@ -17,10 +17,6 @@ if [[ -n "$REMOTE" ]]; then
         -avz ./.dist/ package.json node@$HOST:$APP_DIRECTORY \
         --exclude='.DS_Store'
 
-    rsync -e "ssh -i key.pem" \
-        -avz ./www/* node@$HOST:$WEB_ROOT \
-        --exclude='.DS_Store'
-
     ssh -i key.pem node@$HOST "cd $APP_DIRECTORY && npm install"
     scp -i key.pem .env node@$HOST:$APP_DIRECTORY/.env
 else
@@ -32,7 +28,6 @@ else
     npx tsup
 
     rsync -avz ./.dist/ package.json $APP_DIRECTORY
-    rsync -avz ./www/* $WEB_ROOT
 
     cp .env $APP_DIRECTORY/.env
     pushd $APP_DIRECTORY && npm install && popd

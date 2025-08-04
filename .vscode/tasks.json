@@ -32,7 +32,7 @@
         {
             "label": "deploy app",
             "type": "shell",
-            "command": "./scripts/deploy.sh",
+            "command": "./scripts/deploy-app.sh",
             "presentation": {
                 "reveal": "silent"
             },
@@ -42,6 +42,19 @@
 
             "problemMatcher": []
         },
+        {
+            "label": "deploy www",
+            "type": "shell",
+            "command": "./scripts/deploy-www.sh",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "group": {
+                "kind": "build"
+            },
+
+            "problemMatcher": []
+        },        
         {
             "label": "debug app",
             "type": "shell",
