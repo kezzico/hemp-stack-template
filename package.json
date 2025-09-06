@@ -1,27 +1,20 @@
 {
-  "name": "App",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsup",
-    "deploy": "scripts/deploy.sh",
-    "daemonize": "scripts/daemonize.sh"
   },
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.28.3",
     "@types/node": "^22.15.29",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.830.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2",
-    "multer": "^2.0.1",
-    "mysql2": "^3.14.1",
-    "nodemailer": "^7.0.3"
+    "mysql2": "^3.14.1"
   }
 }
-
-

@@ -8,7 +8,9 @@
 		"files.exclude": {
 			".dist/": true,
 			"package-lock.json": true,
-			"node_modules/": true
+			"node_modules/": true,
+			"scripts": true,
+			".vscode": true
 		}
 	}
 }

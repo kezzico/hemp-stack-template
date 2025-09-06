@@ -6,6 +6,6 @@ while IFS='=' read -r key value; do
     # Escape double quotes in value
     value="${value//\"/\\\"}"
     echo "\$_ENV['${key}'] = \"${value}\";" >> ./www/env.php
-done < .env
+done < "$1"
 echo "?>" >> ./www/env.php
 

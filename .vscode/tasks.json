@@ -4,35 +4,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "start app daemon",
+            "label": "deploy sandbox",
             "type": "shell",
-            "command": "./scripts/daemon.sh start",
-            "presentation": {
-                "reveal":"always"
-            },
-            "group": {
-                "kind": "build"
-            },
-
-            "problemMatcher": []
-        },
-        {
-            "label": "stop app daemon",
-            "type": "shell",
-            "command": "./scripts/daemon.sh stop",
-            "presentation": {
-                "reveal": "always"
-            },
-            "group": {
-                "kind": "build"
-            },
-
-            "problemMatcher": []
-        },
-        {
-            "label": "deploy app",
-            "type": "shell",
-            "command": "./scripts/deploy-app.sh",
+            "command": "./scripts/deploy.sh .env.sandbox",
             "presentation": {
                 "reveal": "silent"
             },
@@ -43,9 +17,9 @@
             "problemMatcher": []
         },
         {
-            "label": "deploy www",
+            "label": "deploy live",
             "type": "shell",
-            "command": "./scripts/deploy-www.sh",
+            "command": "./scripts/deploy.sh .env.live",
             "presentation": {
                 "reveal": "silent"
             },
@@ -56,9 +30,9 @@
             "problemMatcher": []
         },        
         {
-            "label": "debug app",
+            "label": "view logs",
             "type": "shell",
-            "command": "./scripts/debug.sh",
+            "command": "./scripts/logs.sh .env.sandbox",
             "presentation": {
                 "reveal": "always"
             },
@@ -70,7 +44,7 @@
         },
 
         {
-            "label": "query database",
+            "label": "access database",
             "type": "shell",
             "command": "./scripts/database.sh",
             "group": {
