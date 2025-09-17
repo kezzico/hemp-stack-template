@@ -8,8 +8,8 @@ if [[ -n "$REMOTE" ]]; then
 
   ssh -i key.pem node@$HOST "tail -f ~/.pm2/logs/$APP_NAME-error.log ~/.pm2/logs/$APP_NAME-out.log"
 else
-
   tail -f ~/.pm2/logs/$APP_NAME-error.log ~/.pm2/logs/$APP_NAME-out.log
+
 fi
 
 
