@@ -33,6 +33,59 @@ This makes Hemp Stack a bridge between the simplicity of classic web development
 
 ---
 
+## Nginx Configuration Example
+
+Here’s an example **Nginx configuration** for running a Hemp Stack app in production.
+
+* **PHP-FPM** handles `.php` files.
+* **Node/Express** runs on port `3050` and serves API routes.
+* **Nginx** routes requests: static files & PHP go to PHP-FPM, everything else can fall back to Node.
+
+```nginx
+server {
+    listen 80;
+    listen [::]:80;
+
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+    ssl_certificate     /etc/letsencrypt/live/example.com/fullchain.pem;
+
+    server_name example.com;
+
+    root /var/www/example.com;
+    index index.html index.xml index.php;
+
+    error_page 404 /errors/404.html;
+    error_page 500 502 503 504 /errors/500.html;
+
+    access_log /home/node/logs/example.com/access.log www;
+    error_log  /home/node/logs/example.com/error.log error;
+
+    location / {
+        try_files $uri $uri/ @nodejs;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/run/php/php-fpm.sock;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+    location @nodejs {
+        proxy_pass http://127.0.0.1:3050;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+```
+
 ## Getting Started
 
 Clone the repo:
