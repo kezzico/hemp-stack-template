@@ -2,7 +2,7 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig({
-  entry: ['index.ts'],
+  entry: ['index.js'],
   outDir: '.dist',
   target: 'node23', // or whatever Node version you're using
   format: ['cjs'], // CommonJS for Node.js
