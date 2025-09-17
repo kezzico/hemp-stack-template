@@ -57,7 +57,7 @@ if [[ -n "$REMOTE" ]]; then
     if [ $did_stop_app -eq 1 ]; then
         echo "Application was stopped. Restarting..."
         # restart is causing the watch to stop
-        ssh -i key.pem node@$HOST "cd $APP_DIRECTORY && pm2 delete $APP_NAME && pm2 start pm2.config.js"
+        ssh -i key.pem node@$HOST "cd $APP_DIRECTORY && pm2 delete $APP_NAME || pm2 start pm2.config.js"
     fi
 
 else
@@ -108,6 +108,9 @@ else
 
     if [ $did_stop_app -eq 1 ]; then
         echo "Application was stopped. Restarting..."
-        cd $APP_DIRECTORY && pm2 delete $APP_NAME && pm2 start pm2.config.js
+        cd "$APP_DIRECTORY" \
+            && pm2 delete "$APP_NAME" || echo "delete failed, continuing" \
+            && pm2 start pm2.config.js
+
     fi
 fi
